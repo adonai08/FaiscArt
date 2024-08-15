@@ -19,10 +19,7 @@ FK_Planos_ID int,
 FOREIGN KEY(FK_Planos_ID) References Planos (ID)
 );
 
-
-
-
-
+s
 CREATE TABLE Publicações(
 ID int,
 PRIMARY KEY (ID),
@@ -35,7 +32,7 @@ ID int,
 PRIMARY KEY(ID),
 email varchar(50),
 nome varchar(50),
-telDeSuporte varchar(15)
+telDeSuporte int
 );
 
 
