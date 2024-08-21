@@ -25,3 +25,14 @@ INSERT INTO Usuario(ID, email, nome, FK_Planos_ID) VALUE(000000000008, "chico@ta
 INSERT INTO Usuario(ID, email, nome, FK_Planos_ID) VALUE(000000000009, "rondonia@tal.com", "Ribeiro", 111);
 INSERT INTO Usuario(ID, email, nome, FK_Planos_ID) VALUE(000000000010, "givinha@tal.com", "Givaldo", null);
 
+INSERT INTO Publicacoes(ID, titulo) VALUE(00000001, "Origami com papel de Jornal");
+INSERT INTO Publicacoes(ID, titulo) VALUE(00000002, "Truque para melhorar seus desenhor");
+INSERT INTO Publicacoes(ID, titulo) VALUE(00000003, "Como aprender a desenhar");
+INSERT INTO Publicacoes(ID, titulo) VALUE(00000004, "Tecnicas para pintura");
+INSERT INTO Publicacoes(ID, titulo) VALUE(00000005, "Vasos de argilas");
+INSERT INTO Publicacoes(ID, titulo) VALUE(00000006, "Arte contemporânea");
+
+
+
+
+INSERT INTO AdmUsuPub(FK_Usuario_ID,FK_Administrador_ID,FK_Publicações_ID) VALUE(000000000005,01,00000005)
