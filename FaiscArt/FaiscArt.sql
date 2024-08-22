@@ -46,8 +46,15 @@ FOREIGN KEY(FK_Usuario_ID) References Usuario (ID)
 CREATE TABLE AdmUsuPub(
 FK_Usuario_ID int,
 FK_Administrador_ID int,
-FK_Publicações_ID int,
+FK_Publicacoes_ID int,
 FOREIGN KEY(FK_Usuario_ID) References Usuario (ID),
 FOREIGN KEY(FK_Administrador_ID) References Administrador (ID),
-FOREIGN KEY(FK_Publicações_ID) References Administrador (ID)
+FOREIGN KEY(FK_Publicacoes_ID) References Administrador (ID)
+);
+
+CREATE TABLE Denuncias(
+ID int,
+PRIMARY KEY (ID),
+FK_Usuario_ID int,
+FK_Publicacoes_ID int
 )
