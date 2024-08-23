@@ -37,7 +37,7 @@ telDeSuporte int
 
 
 CREATE TABLE Interesses(
-Cod VARCHAR(12),
+Cod VARCHAR(50),
 PRIMARY KEY (Cod),
 FK_Usuario_ID int,
 FOREIGN KEY(FK_Usuario_ID) References Usuario (ID)
@@ -49,7 +49,7 @@ FK_Administrador_ID int,
 FK_Publicacoes_ID int,
 FOREIGN KEY(FK_Usuario_ID) References Usuario (ID),
 FOREIGN KEY(FK_Administrador_ID) References Administrador (ID),
-FOREIGN KEY(FK_Publicacoes_ID) References Administrador (ID)
+FOREIGN KEY(FK_Publicacoes_ID) References Publicacoes (ID)
 );
 
 CREATE TABLE Denuncias(

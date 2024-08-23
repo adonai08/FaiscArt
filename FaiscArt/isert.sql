@@ -12,7 +12,7 @@ INSERT INTO Usuario(ID, email, nome, FK_Planos_ID) VALUE(000000000001, "douglass
 (000000000003, "joaozinho@tal.com", "João", 111),
 (000000000004, "juninho@tal.com", "Junior", null),
 (000000000005, "snoop@tal.com", "SnoopDog", 333),
-(000000000010, "givinha@tal.com", "Givaldo", null);
+(000000000006, "givinha@tal.com", "Givaldo", null);
 
 INSERT INTO Publicacoes(ID, titulo) VALUE(00000001, "Origami com papel de Jornal"),
 (00000002, "Truque para melhorar seus desenhor"),
@@ -22,8 +22,10 @@ INSERT INTO Publicacoes(ID, titulo) VALUE(00000001, "Origami com papel de Jornal
 
 INSERT INTO Interesses(Cod, FK_Usuario_ID) VALUE("Arte Classica", 000000000001),
 ("Renascimento", 000000000002),
-("Arte Contemporanêa", 000000000010);
+("Arte Contemporanêa", 000000000006),
+("Vasos de gesso", "000000000005");
 
-INSERT INTO AdmUsuPub(FK_Usuario_ID,FK_Administrador_ID,FK_Publicações_ID) VALUE(000000000005,01,00000005);
-
-INSERT INTO Denuncias(ID,FK_Usuario_ID, FK_Publicacoes_ID) VALUE(99999, 000000000003, 00000004)
+INSERT INTO Denuncias(ID,FK_Usuario_ID, FK_Publicacoes_ID) VALUE(99999, 000000000003, 00000004),
+(88888, 000000000005, 00000004),
+(77777, 000000000001, 00000005),
+(66666, 000000000002, 00000001)
