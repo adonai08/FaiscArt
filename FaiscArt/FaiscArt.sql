@@ -11,14 +11,6 @@ valor int
 
 
 
-
-CREATE TABLE Publicacoes(
-ID int,
-PRIMARY KEY (ID),
-titulo varchar(50)
-);
-
-
 CREATE TABLE Administrador(
 ID int,
 PRIMARY KEY(ID),
@@ -33,8 +25,16 @@ PRIMARY KEY(ID),
 email varchar(50),
 nome varchar(50),
 FK_Planos_ID int,
-FK_Administrador_ID int,
 FOREIGN KEY(FK_Planos_ID) References Planos (ID)
+);
+
+CREATE TABLE Publicacoes(
+ID int,
+PRIMARY KEY (ID),
+titulo varchar(50),
+FK_Usuario_ID int,
+FOREIGN KEY(FK_Usuario_ID) References Usuario (ID),
+Obra varchar(50)
 );
 
 
@@ -45,14 +45,7 @@ FK_Usuario_ID int,
 FOREIGN KEY(FK_Usuario_ID) References Usuario (ID)
 );
 
-CREATE TABLE AdmUsuPub(
-FK_Usuario_ID int,
-FK_Administrador_ID int,
-FK_Publicacoes_ID int,
-FOREIGN KEY(FK_Usuario_ID) References Usuario (ID),
-FOREIGN KEY(FK_Administrador_ID) References Administrador (ID),
-FOREIGN KEY(FK_Publicacoes_ID) References Publicacoes (ID)
-);
+
 
 CREATE TABLE Denuncias(
 ID int,
