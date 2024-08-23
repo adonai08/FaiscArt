@@ -7,12 +7,13 @@ INSERT INTO Planos(ID, nome, valor) VALUE(111, "basico", 25),
 (222, "intermediario", 100),
 (333, "avancado", 150);
 
-INSERT INTO Usuario(ID, email, nome, FK_Planos_ID) VALUE(000000000001, "douglassola@tal.com", "Douglas", 111),
-(000000000002, "maria@tal.com", "Maria", 222),
-(000000000003, "joaozinho@tal.com", "João", 111),
-(000000000004, "juninho@tal.com", "Junior", null),
-(000000000005, "snoop@tal.com", "SnoopDog", 333),
-(000000000006, "givinha@tal.com", "Givaldo", null);
+INSERT INTO Usuario(ID, email, nome, FK_Planos_ID, FK_Administrador_ID) VALUE(000000000001, "adonai@tal.com", "Adonai", 333, 01),
+(000000000002, "maria@tal.com", "Maria", 333, 04),
+(000000000003, "joaozinho@tal.com", "João", 111, null),
+(000000000004, "matheus@tal.com", "Matheus", 333, 02),
+(000000000005, "snoop@tal.com", "SnoopDog", 222),
+(000000000006, "givinha@tal.com", "Givaldo", 111, null),
+(000000000007, "joao@tal.com", "João", 333, 03);
 
 INSERT INTO Publicacoes(ID, titulo) VALUE(00000001, "Origami com papel de Jornal"),
 (00000002, "Truque para melhorar seus desenhor"),

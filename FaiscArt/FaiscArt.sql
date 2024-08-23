@@ -10,14 +10,6 @@ valor int
 );
 
 
-CREATE TABLE Usuario(
-ID int,
-PRIMARY KEY(ID),
-email varchar(50),
-nome varchar(50),
-FK_Planos_ID int,
-FOREIGN KEY(FK_Planos_ID) References Planos (ID)
-);
 
 
 CREATE TABLE Publicacoes(
@@ -33,6 +25,16 @@ PRIMARY KEY(ID),
 email varchar(50),
 nome varchar(50),
 telDeSuporte int
+);
+
+CREATE TABLE Usuario(
+ID int,
+PRIMARY KEY(ID),
+email varchar(50),
+nome varchar(50),
+FK_Planos_ID int,
+FK_Administrador_ID int,
+FOREIGN KEY(FK_Planos_ID) References Planos (ID)
 );
 
 
