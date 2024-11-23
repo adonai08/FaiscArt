@@ -50,6 +50,8 @@ CREATE TABLE Interesses (
     FOREIGN KEY (FK_Usuario_ID) REFERENCES Usuario (ID)
 );
 
+
+
 -- Tabela de Denúncias
 CREATE TABLE Denuncias (
     ID INT AUTO_INCREMENT,
@@ -59,6 +61,17 @@ CREATE TABLE Denuncias (
     FOREIGN KEY (FK_Usuario_ID) REFERENCES Usuario (ID),
     FOREIGN KEY (FK_Publicacoes_ID) REFERENCES Publicacoes (ID)
 );
+
+ -- Tabela de Chat
+ CREATE TABLE Chat(
+ ID INT AUTO_INCREMENT, -- Identificador único da relação
+    PRIMARY KEY (ID),
+    FK_Usuario_1 VARCHAR(15), -- ID do primeiro usuário
+    FK_Usuario_2 VARCHAR(15), -- ID do segundo usuário
+    FOREIGN KEY (FK_Usuario_1) REFERENCES Usuario(ID),
+    FOREIGN KEY (FK_Usuario_2) REFERENCES Usuario(ID)
+
+ );
 
 -- Inserção de dados na tabela Administrador
 INSERT INTO Administrador (ID, email, nome, telDeSuporte, senha) VALUES
@@ -85,12 +98,12 @@ INSERT INTO Usuario (ID, email, nome, senha) VALUES
 ('7', 'joao@tal.com', 'João','maria@');
 
 -- Inserção de dados na tabela Publicacoes
-INSERT INTO Publicacoes (ID, titulo, FK_Usuario_ID, Obra, imagem) VALUES
-(1, 'CACHORROPORU', '1', 'CACHORROPORU', 'poru.jpeg'),
-(2, 'Truque para melhorar seus desenhos', '1', 'Melhor Lápis', 'dicas.jgp'),
-(3, 'Como aprender a desenhar', '4', 'Livro de desenho (iniciantes)',' ensinando.svg'),
-(4, 'A Criação de Adão', '4', 'A Criação de Adão', 'DedoComDedo.png'),
-(5, 'Vasos de argilas', '6', 'Galinha de argila', 'galinha.png');
+INSERT INTO Publicacoes (ID, titulo, FK_Usuario_ID, Obra, imagem, valor) VALUES
+(1, 'CACHORROPORU', '1', 'CACHORROPORU', 'poru.jpeg', NULL),
+(2, 'Truque para melhorar seus desenhos', '1', 'Melhor Lápis', 'dicas.jgp', NULL),
+(3, 'Como aprender a desenhar', '4', 'Livro de desenho (iniciantes)',' ensinando.svg', 20),
+(4, 'A Criação de Adão', '4', 'A Criação de Adão', 'DedoComDedo.png', null),
+(5, 'Vasos de argilas', '6', 'Galinha de argila', 'galinha.png', NULL);
 
 -- Inserção de dados na tabela Interesses
 INSERT INTO Interesses (Cod, FK_Usuario_ID) VALUES
@@ -104,3 +117,9 @@ INSERT INTO Denuncias (ID, FK_Usuario_ID, FK_Publicacoes_ID) VALUES
 (88888, '3', 4),
 (77777, '2', 4),
 (55555, '2', 3);
+
+-- Inserção de dados na tabela Chat
+INSERT INTO Chat (ID,FK_Usuario_1, FK_Usuario_2) VALUES
+(1, 1, 4),
+(2, 1, 6),
+(3,1,3);
