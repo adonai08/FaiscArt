@@ -28,3 +28,25 @@ SELECT u1.nome AS NomeUsuario1, u2.nome AS NomeUsuario2 FROM Chat c
 JOIN Usuario u1 ON c.FK_Usuario_1 = u1.ID
 JOIN Usuario u2 ON c.FK_Usuario_2 = u2.ID
 WHERE u1.nome = 'Matheus' OR u2.nome = 'Matheus';
+
+-- Obter todas as publicações do usuário Matheus
+
+SELECT titulo, Obra, imagem, valor 
+FROM Publicacoes 
+WHERE FK_Usuario_ID = '4';
+
+-- Listar todos os usuários registrados
+SELECT ID, nome, email 
+FROM Usuario;
+
+ -- Visualizar informações de denúncia feitas pelo Adonai
+ SELECT d.ID, d.FK_Publicacoes_ID, p.titulo AS PublicacaoDenunciada 
+FROM Denuncias d
+JOIN Publicacoes p ON d.FK_Publicacoes_ID = p.ID
+WHERE d.FK_Usuario_ID = '3';
+
+-- Buscar todas as publicações relacionadas a arte
+
+SELECT * FROM Publicacoes 
+WHERE titulo LIKE '%arte%' OR Obra LIKE '%arte%';
+
