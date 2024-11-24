@@ -43,12 +43,12 @@ CREATE TABLE Publicacoes (
 );
 
 -- Tabela de Interesses
-CREATE TABLE Interesses (
-    Cod VARCHAR(50),
-    PRIMARY KEY (Cod),
-    FK_Usuario_ID VARCHAR(15),
-    FOREIGN KEY (FK_Usuario_ID) REFERENCES Usuario (ID)
-);
+#CREATE TABLE Interesses (
+ #   Cod VARCHAR(50),
+ #   PRIMARY KEY (Cod),
+ #   FK_Usuario_ID VARCHAR(15),
+ #   FOREIGN KEY (FK_Usuario_ID) REFERENCES Usuario (ID)
+#);
 
 
 
@@ -100,16 +100,19 @@ INSERT INTO Usuario (ID, email, nome, senha) VALUES
 -- Inserção de dados na tabela Publicacoes
 INSERT INTO Publicacoes (ID, titulo, FK_Usuario_ID, Obra, imagem, valor) VALUES
 (1, 'CACHORROPORU', '1', 'CACHORROPORU', 'poru.jpeg', NULL),
-(2, 'Truque para melhorar seus desenhos', '1', 'Melhor Lápis', 'dicas.jgp', NULL),
-(3, 'Como aprender a desenhar', '4', 'Livro de desenho (iniciantes)',' ensinando.svg', 20),
+(2, 'São Jerônimo', '1', 'São Jerônimo', 'sj.jgp', NULL),
+(3, 'Curso de pintura', '3', 'Livro de pintura (iniciantes)',' ensinando.svg', 75),
 (4, 'A Criação de Adão', '4', 'A Criação de Adão', 'DedoComDedo.png', null),
-(5, 'Vasos de argilas', '6', 'Galinha de argila', 'galinha.png', NULL);
+(5, 'Peça de Argila', '1', 'Peça de argila', 'argila.png', 30),
+(6, 'Curso de Origami', '4', 'Curso de Origami', 'RaposaOrigami.jpg', 99),
+(7, 'A noite estrelada', '4', 'A Noite Estrelada', 'Vangogh.jpg', NULL),
+(8, 'Aprenda a desenhar', '3', 'Aprenda a desenhar', 'Olho.png', 60);
 
 -- Inserção de dados na tabela Interesses
-INSERT INTO Interesses (Cod, FK_Usuario_ID) VALUES
-('Desenho', '2'),
-('Teatro', '4'),
-('Modelagens', '6');
+#INSERT INTO Interesses (Cod, FK_Usuario_ID) VALUES
+#('Desenho', '2'),
+#('Teatro', '4'),
+#('Modelagens', '6');
 
 -- Inserção de dados na tabela Denuncias
 INSERT INTO Denuncias (ID, FK_Usuario_ID, FK_Publicacoes_ID) VALUES

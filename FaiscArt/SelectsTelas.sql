@@ -60,3 +60,29 @@ FROM Denuncias d
 JOIN Usuario u ON d.FK_Usuario_ID = u.ID
 GROUP BY u.nome
 ORDER BY TotalDenuncias DESC;
+
+-- Selecionar o total de publicações feitas por cada usuário.
+SELECT u.nome AS NomeUsuario, COUNT(p.ID) AS TotalPublicacoes
+FROM Publicacoes p
+JOIN Usuario u ON p.FK_Usuario_ID = u.ID
+GROUP BY u.nome
+ORDER BY TotalPublicacoes DESC;
+
+-- Listar todas as publicações que não possuem valor
+SELECT titulo AS Titulo, Obra AS NomeDaObra 
+FROM Publicacoes 
+WHERE valor IS NULL;
+
+-- Contar o total de usuários cadastrados no sistema.
+SELECT COUNT(*) AS TotalUsuarios FROM Usuario;
+
+-- Obter o nome da publicação mais denunciada.
+SELECT p.titulo AS PublicacaoMaisDenunciada, COUNT(d.ID) AS TotalDenuncias FROM Denuncias d
+JOIN Publicacoes p ON d.FK_Publicacoes_ID = p.ID GROUP BY p.titulo
+ORDER BY TotalDenuncias DESC
+LIMIT 1;
+
+-- Exibir o nome e email dos usuários que nunca publicaram nada.
+SELECT u.nome AS NomeUsuario, u.email AS EmailUsuario FROM Usuario u
+LEFT JOIN Publicacoes p ON u.ID = p.FK_Usuario_ID
+WHERE p.ID IS NULL;
