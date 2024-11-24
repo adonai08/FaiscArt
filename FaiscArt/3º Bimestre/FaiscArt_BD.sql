@@ -16,12 +16,12 @@ CREATE TABLE Administrador (
     email VARCHAR(50),
     nome VARCHAR(50),
     senha varchar(50),
-    telDeSuporte VARCHAR(20) -- Usado VARCHAR para manter zeros à esquerda
+    telDeSuporte VARCHAR(20) 
 );
 
 -- Tabela de Usuários
 CREATE TABLE Usuario (
-    ID VARCHAR(15), -- Usando VARCHAR para IDs com zeros à esquerda
+    ID VARCHAR(15), 
     PRIMARY KEY (ID),
     email VARCHAR(50),
     nome VARCHAR(50),
@@ -64,14 +64,26 @@ CREATE TABLE Denuncias (
 
  -- Tabela de Chat
  CREATE TABLE Chat(
- ID INT AUTO_INCREMENT, -- Identificador único da relação
+ ID INT AUTO_INCREMENT,
     PRIMARY KEY (ID),
-    FK_Usuario_1 VARCHAR(15), -- ID do primeiro usuário
-    FK_Usuario_2 VARCHAR(15), -- ID do segundo usuário
+    FK_Usuario_1 VARCHAR(15), 
+    FK_Usuario_2 VARCHAR(15), 
     FOREIGN KEY (FK_Usuario_1) REFERENCES Usuario(ID),
     FOREIGN KEY (FK_Usuario_2) REFERENCES Usuario(ID)
 
  );
+-- Tabela de comentários
+CREATE TABLE Comentarios (
+    ID INT AUTO_INCREMENT, 
+    PRIMARY KEY (ID),
+    FK_Publicacao_ID INT,
+    FK_Usuario_ID VARCHAR(15),
+    texto VARCHAR(255) NOT NULL,          
+    FOREIGN KEY (FK_Publicacao_ID) REFERENCES Publicacoes(ID),
+    FOREIGN KEY (FK_Usuario_ID) REFERENCES Usuario(ID)
+);
+
+
 
 -- Inserção de dados na tabela Administrador
 INSERT INTO Administrador (ID, email, nome, telDeSuporte, senha) VALUES
@@ -126,3 +138,15 @@ INSERT INTO Chat (ID,FK_Usuario_1, FK_Usuario_2) VALUES
 (1, 1, 4),
 (2, 1, 6),
 (3,1,3);
+
+-- Inserção de dados na tabela comentários  Obs: Não conseguimos (falta de planejamento) implementar os textos dos comentários
+#INSERT INTO Comentarios (FK_Publicacao_ID, FK_Usuario_ID, texto) VALUES
+#(1, '2', 'Essa publicação é maravilhosa, gostei muito do conceito!'),
+#(2, '3', 'Adorei a ideia, muito inspirador!'),
+#(3, '4', 'Ótimas dicas para quem está começando, adorei o conteúdo!'),
+#(4, '5', 'Muito boa a obra, gostei da proposta, mas o valor está alto.'),
+#(5, '1', 'Achei interessante, mas precisaria de mais detalhes na descrição da obra.'),
+#(6, '3', 'O conteúdo está muito bem explicado, vou tentar aplicar no meu trabalho!'),
+#(7, '6', 'Eu sou fã do Van Gogh! Essa obra ficou incrível!'),
+#(8, '2', 'Muito legal, estou aprendendo muito com o seu material!'),
+#(8, '4', 'Excelente! Eu adorei as dicas de como desenhar olhos de forma mais realista!');
