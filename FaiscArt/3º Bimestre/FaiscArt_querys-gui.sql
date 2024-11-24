@@ -36,10 +36,6 @@ SELECT titulo, Obra, imagem, valor
 FROM Publicacoes 
 WHERE FK_Usuario_ID = '4';
 
--- Listar todos os usuários registrados
-SELECT ID, nome, email 
-FROM Usuario;
-
  -- Visualizar informações de denúncia feitas pelo User com ID = 3
  SELECT d.ID, d.FK_Publicacoes_ID, p.titulo AS PublicacaoDenunciada 
 FROM Denuncias d
