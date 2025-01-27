@@ -130,40 +130,41 @@ JOIN Publicacoes p ON d.FK_Publicacoes_ID = p.ID
 WHERE d.FK_Usuario_ID = '2';
 
 -- TELA DE CHAT RECENTE
-SELECT 
-    u.ID AS id_usuario,
-    u.nome,
-    m.mensagem,
-    m.data_envio
-FROM 
-    mensagens m
-INNER JOIN Usuario u
-    ON (m.id_usuario_remetente = u.ID OR m.id_usuario_destinatario = u.ID)
-WHERE 
-    m.id_usuario_remetente = '1'
-    OR m.id_usuario_destinatario = '1'
-GROUP BY 
-    u.ID, m.mensagem, m.data_envio
-ORDER BY 
-    m.data_envio DESC;
-
--- TELA DE CHAT INDIVIDUAL
-SELECT 
-    m.id_mensagem,
-    m.mensagem,
-    m.data_envio,
-    CASE 
-        WHEN m.id_usuario_remetente = '1' THEN 'enviado'
-        ELSE 'recebido'
-    END AS tipo_mensagem
-FROM 
-    mensagens m
-WHERE 
-    (m.id_usuario_remetente = '1' AND m.id_usuario_destinatario = '4')
-    OR (m.id_usuario_remetente = '4' AND m.id_usuario_destinatario = '1')
-ORDER BY 
-    m.data_envio ASC;
+SELECT u.ID AS id_usuario, u.nome, m.mensagem, m.data_envio
+FROM mensagens m INNER JOIN Usuario u
+ON (m.id_usuario_remetente = u.ID OR m.id_usuario_destinatario = u.ID)
+WHERE m.id_usuario_remetente = '1' OR m.id_usuario_destinatario = '1'
+GROUP BY u.ID, m.mensagem, m.data_envio
+ORDER BY m.data_envio DESC;
 
 -- INSERIR NOVA MENSAGEM NO CHAT
 INSERT INTO mensagens (id_usuario_remetente, id_usuario_destinatario, mensagem)
 VALUES ('1', '4', 'Conteúdo da mensagem');
+
+-- TELA DE INICIO
+SELECT p.ID AS IDPublicacao, 
+       p.titulo AS TituloPublicacao, 
+       p.imagem AS ImagemPublicacao, 
+       u.nome AS NomeUsuario
+FROM Publicacoes p
+JOIN Usuario u ON p.FK_Usuario_ID = u.ID
+ORDER BY p.ID DESC; -- Publicações mais recentes primeiro
+
+-- TELA DE PERFIL 
+SELECT p.ID AS IDPublicacao, 
+       p.titulo AS TituloPublicacao, 
+       p.imagem AS ImagemPublicacao, 
+       u.nome AS NomeUsuario
+FROM Publicacoes p
+JOIN Usuario u ON p.FK_Usuario_ID = u.ID
+WHERE u.ID = '1'; -- Substituir pelo ID do usuário logado
+
+-- TELA DE POST
+SELECT p.titulo AS TituloPublicacao, 
+       p.descricao AS DescricaoPublicacao, 
+       p.imagem AS ImagemPublicacao, 
+       u.nome AS NomeAutor
+FROM Publicacoes p
+JOIN Usuario u ON p.FK_Usuario_ID = u.ID
+WHERE p.ID = 1; -- Substituir pelo ID da publicação selecionada
+
