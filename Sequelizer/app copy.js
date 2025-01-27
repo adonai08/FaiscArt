@@ -148,9 +148,41 @@ const setupRelationships = require('./faiscart/relationships');
     // Inserir pagamentos
     const pagamentos = await Promise.all([
       Pagamento.create({ FK_Publicacao_ID: 1, metodo_pagamento: 'PIX', valor: 100 }),
-      Pagamento.create({ FK_Publicacao_ID: 1, metodo_pagamento: 'BOLETO', valor: 100, data_pagamento: new Date() }),
-      Pagamento.create({ FK_Publicacao_ID: 1, metodo_pagamento: 'CARTAO', valor: 100, numero_cartao: '1234567812345678', validade_cartao: '12/25', cvv: '123' }),
+      Pagamento.create({ FK_Publicacao_ID: 1, metodo_pagamento: 'BOLETO', valor: 100}),
+      Pagamento.create({ FK_Publicacao_ID: 1, metodo_pagamento: 'CARTAO', valor: 100}),
     ]);
+
+    // Ler todos os usuários
+    const usuariosParaLer = await Usuario.findAll();
+    console.log('Usuários:', usuariosParaLer);
+
+    // Ler uma publicação específica
+    const publicacaoParaLer = await Publicacao.findByPk(1);
+    console.log('Publicação:', publicacaoParaLer);
+
+
+
+    // Atualizar nome do usuário com ID 1
+    const usuarioParaAtualizar = await Usuario.findByPk(1);
+    if (usuarioParaAtualizar) {
+      await usuarioParaAtualizar.update({ nome: 'Adonai Atualizado' });
+      console.log('Usuário atualizado:', usuarioParaAtualizar);
+    }
+
+
+    // Deletar uma publicação
+    const publicacaoParaDeletar = await Publicacao.findByPk(2);
+    if (publicacaoParaDeletar) {
+      await publicacaoParaDeletar.destroy();
+      console.log('Publicação deletada:', publicacaoParaDeletar);
+    }
+
+    // Deletar um usuário
+    const usuarioParaDeletar = await Usuario.findByPk(7);
+    if (usuarioParaDeletar) {
+      await usuarioParaDeletar.destroy();
+      console.log('Usuário deletado:', usuarioParaDeletar);
+    }
 
     console.log('Pagamentos criados.');
   } catch (error) {
