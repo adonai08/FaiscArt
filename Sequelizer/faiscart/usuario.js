@@ -23,9 +23,6 @@ const Usuario = sequelize.define('Usuario', {
     type: DataTypes.STRING(100),
     allowNull: false, // Senha é obrigatória
   },
-}, {
-  tableName: 'Usuario', // Nome da tabela no banco de dados
-  timestamps: false, // Desativa as colunas de data de criação e atualização
-});
+},);
 
 module.exports = Usuario;
