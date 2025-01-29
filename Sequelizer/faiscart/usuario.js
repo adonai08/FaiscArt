@@ -5,23 +5,23 @@ const Usuario = sequelize.define('Usuario', {
   id: {
     type: DataTypes.STRING(15),
     primaryKey: true,
-    allowNull: false, // Certifica que o ID é obrigatório
+    allowNull: false, 
   },
   nome: {
     type: DataTypes.STRING(100),
-    allowNull: false, // Nome é obrigatório
+    allowNull: false, 
   },
   email: {
     type: DataTypes.STRING(100),
-    allowNull: false, // Email é obrigatório
-    unique: true, // Garante que o email seja único
+    allowNull: false, 
+    unique: true, 
     validate: {
-      isEmail: true, // Valida o formato de email
+      isEmail: true, 
     },
   },
   senha: {
     type: DataTypes.STRING(100),
-    allowNull: false, // Senha é obrigatória
+    allowNull: false, 
   },
 },);
 
