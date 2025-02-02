@@ -1,10 +1,10 @@
 const sequelize = require('./db');
-const Usuario = require('./faiscart/usuario');
-const Publicacao = require('./faiscart/publicacao');
-const Adm = require('./faiscart/adm');
-const Mensagem = require('./faiscart/mensagem');
-const Denuncia = require('./faiscart/denuncias');
-const setupRelationships = require('./faiscart/relationships');
+const Usuario = require('./models/usuario');
+const Publicacao = require('./models/publicacao');
+const Adm = require('./models/adm');
+const Mensagem = require('./models/mensagem');
+const Denuncia = require('./models/denuncias');
+const setupRelationships = require('./models/relationships');
 
 (async () => {
   try {

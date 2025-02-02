@@ -1,8 +1,8 @@
 const {Sequelize} = require('sequelize');
 const sequelize = new Sequelize(
     'sequelize', // nome do banco
-    'aluno.ifal', // nome do usuario
-    'aluno.ifal', // senha de acesso
+    'root', // nome do usuario
+    'M@theus01', // senha de acesso
     {
         host: '127.0.0.1',
         dialect: 'mysql'

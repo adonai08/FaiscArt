@@ -1,6 +1,6 @@
 const sequelize = require('./db');
 // Importar os models
-const setupRelationships = require('./faiscart/relationships');
+const setupRelationships = require('./models/relationships');
 
 (async () => {
   try {
