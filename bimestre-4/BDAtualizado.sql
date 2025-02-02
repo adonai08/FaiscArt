@@ -23,9 +23,6 @@ CREATE TABLE Pagamentos (
     FK_Publicacao_ID INT,
     metodo_pagamento VARCHAR(15),
     valor DECIMAL(10, 2) NOT NULL,
-    numero_cartao VARCHAR(16),
-    validade_cartao VARCHAR(5),
-    cvv VARCHAR(3),
     FOREIGN KEY (FK_Publicacao_ID) REFERENCES Publicacoes(ID)
 );
 
@@ -109,8 +106,8 @@ VALUES (1, 'PIX', 100);
 INSERT INTO Pagamentos (FK_Publicacao_ID, metodo_pagamento, valor )
 VALUES (1, 'BOLETO', 100);
 
-INSERT INTO Pagamentos (FK_Publicacao_ID, metodo_pagamento, valor, numero_cartao, validade_cartao, cvv)
-VALUES (1, 'CARTAO', 100, '1234567812345678', '12/25', '123');
+INSERT INTO Pagamentos (FK_Publicacao_ID, metodo_pagamento, valor)
+VALUES (1, 'CARTAO', 100);
 
 -- TELA DE NOVA DENÚNCIA
 INSERT INTO Denuncias (FK_Publicacoes_ID, FK_Usuario_ID, descricao)
