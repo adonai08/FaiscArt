@@ -77,12 +77,12 @@ INSERT INTO Usuario (ID, email, nome, senha) VALUES
 INSERT INTO Publicacoes (ID, titulo, FK_Usuario_ID, descricao, imagem, valor) VALUES
 (1, 'CACHORROPORU', '1', 'Arte contemporânea sobre cães', 'poru.jpeg', 0),
 (2, 'São Jerônimo', '1', 'Obra inspirada em São Jerônimo', 'sj.jpg', 0),
-(3, 'Curso de pintura', '3', 'Curso básico de pintura para iniciantes', 'ensinando.svg', 75),
+(3, 'Curso de pintura', '3', 'Aprenda a pintar de forma simples e divertida! Técnicas fáceis e práticas para criar suas próprias obras.', 'ensinando.svg', 75),
 (4, 'A Criação de Adão', '4', 'Obra renascentista representando a criação', 'DedoComDedo.png', 0),
-(5, 'Peça de Argila', '1', 'Arte manual com argila', 'argila.png', 30),
-(6, 'Curso de Origami', '4', 'Aprenda a fazer origamis complexos', 'RaposaOrigami.jpg', 99),
+(5, 'Peça de Argila', '1', 'Peça única feita á mão, com acabamento natural e design exclusivo. ideal para decoração ou presente especial!', 'argila.png', 30),
+(6, 'Curso de Origami', '4', 'Aprenda origami de forma fácil e divertida! Crie animais, flores e mais com nosso curso prático e rápido.', 'RaposaOrigami.jpg', 99),
 (7, 'A noite estrelada', '4', 'Obra clássica de Van Gogh', 'Vangogh.jpg', 0),
-(8, 'Aprenda a desenhar', '3', 'Guia prático para desenhar olhos realistas', 'Olho.png', 60);
+(8, 'Aprenda a desenhar', '3', 'Aprenda a desenhar de forma simples e rápida! Nosso curso de desenho ensina técnicas básicas e avançadas para você criar incríveis obras de arte.', 'Olho.png', 60);
 
 INSERT INTO Denuncias (ID, FK_Usuario_ID, FK_Publicacoes_ID, descricao) VALUES
 (99999, '3', 4, 'Conteúdo impróprio para crianças'),

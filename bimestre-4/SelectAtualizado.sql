@@ -50,3 +50,10 @@ WHERE p.ID = 1; -- Substituir pelo ID da publicação selecionada
 SELECT p.id AS id_publicacao,p.titulo,p.descricao,p.valor,p.imagem, u.nome AS nome_usuario
 FROM Publicacoes AS p INNER JOIN usuario AS u
 ON p.FK_Usuario_ID = u.id WHERE p.valor > 0;
+
+-- TELA DE PESQUISA
+SELECT p.ID AS id_publicacao, p.titulo AS titulo_publicacao, p.imagem AS imagem_publicacao
+FROM Publicacoes AS p;
+
+-- TELA DE DETTALHAMENTO DE COMPRA
+SELECT * FROM Publicacoes WHERE id = 5;
